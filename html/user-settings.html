@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Place Keeper - Settings</title>
+</head>
+
+<body>
+    <header class="main-header grid grid-column align-center">
+        <div class="logo">Place<span class="logo-symbol fa"></span>Keeper</div>
+        <nav class="main-nav">
+            <ul class="grid grid-column clean-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="user-settings.html" class="active">Settings</a></li>
+                <li><a href="places.html">Places</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <form class="main-form" onsubmit="onSubmit(event)">
+            <h2>Set Your Settings</h2>
+
+            <label for="email">E-Mail:</label>
+            <input id="email" type="email" name="email" placeholder="Insert your email here">
+
+            <label for="ageInput">Age:</label>
+            <div>
+                <input id="ageInput" type="range" name="age" min="18" max="120" value="18"
+                    oninput="ageOutput.value = ageInput.value" />
+                <output id="ageOutput" for="ageInput">18</output>
+            </div>
+
+            <label for="backgroundColor">Set Background Color:</label>
+            <input type="color" name="backgroundColor" id="backgroundColor" value="#000">
+
+            <label for="textColor">Set Text Color:</label>
+            <input type="color" name="textColor" id="textColor" value="#000">
+
+            <label for="birthDate">Birth Date:</label>
+            <input type="date" name="birthDate" id="birthDate">
+
+            <label for="birthTime">Birth Time:</label>
+            <input type="time" name="birthTime" id="birthTime">
+
+            <button>Save</button>
+        </form>
+
+        <video class="main-hero" autoplay muted loop playsinline>
+            <source src="/videos/hero.mp4" />
+            Your browser doesn't support the video tag.
+        </video>
+    </main>
+</body>
+
+</html>

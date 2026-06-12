@@ -1,0 +1,30 @@
+/* Eurofurence */
+@font-face {
+    font-family: Eurofurence;
+    src: url(/fonts/Eurofurence/Eurofurence-Regular.ttf);
+}
+
+/* Lato */
+@font-face {
+    font-family: Lato;
+    src: url(/fonts/Lato/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lato-Bold;
+    src: url(/fonts/Lato/Lato-Bold.ttf);
+}
+
+/* Font Awesome */
+@font-face {
+    font-family: fa;
+    src: url(/fonts/fa/fa-brands-400.woff2);
+}
+
+.fa::before {
+    font-family: fa;
+}
+
+.fa.logo-symbol::before {
+    content: "\e86b";
+}

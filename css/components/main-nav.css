@@ -1,0 +1,35 @@
+.main-nav ul>li {
+    border-inline-end: 1.5px solid var(--clr-primary-outline--1);
+}
+
+.main-nav ul>li:first-child {
+    border-inline-start: 1.5px solid var(--clr-primary-outline--1);
+}
+
+.main-nav a {
+    display: grid;
+    place-items: center;
+
+    min-height: 4rem;
+    min-width: 4rem;
+
+    padding-inline: .5em;
+
+    color: var(--clr-primary--1);
+    font-family: Lato-Bold, sans-serif;
+    letter-spacing: 0.0625rem;
+
+    transition: box-shadow .4s;
+}
+
+.main-nav a.active {
+    cursor: default;
+    pointer-events: none; /* Stops mouse clicks and touch events */
+    
+    color: var(--clr-primary-outline-1);
+    box-shadow: inset 0px -6px 0 var(--clr-primary-outline-1);
+}
+
+.main-nav a:hover {
+    box-shadow: inset 0px -6px 0 var(--clr-primary-outline-1);
+}

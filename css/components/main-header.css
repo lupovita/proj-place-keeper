@@ -1,0 +1,10 @@
+.main-header {
+    gap: 2rem;
+    background-color: var(--clr-primary-bg-1);
+    box-shadow: inset 0px -6px 0px var(--clr-primary-outline--1);
+    color: var(--clr-primary--1);
+}
+
+.main-header .logo {
+    margin-inline-start: .5rem;
+}
