@@ -2,16 +2,17 @@
 
 :root {
     --clr-primary--1: #ffffff;
-    --clr-primary-base: rgba(47, 0, 255, 0.6);
+    --clr-primary-base: #866bff;
 
-    --clr-primary-bg--1: rgb(255, 255, 255, 0.6);
-    --clr-primary-bg: rgb(80, 111, 173, 0.3);
+    --clr-primary-bg--1: #ffffff99;
+    --clr-primary-bg: #506fad4d;
     --clr-primary-bg-1: #292929;
+    --clr-primary-bg-2: #000000;
 
     --clr-primary-outline--2: #e1e0e0;
     --clr-primary-outline--1: #fcb2ff;
-    --clr-primary-outline: rgb(250, 116, 250);
+    --clr-primary-outline: #fa74fa;
     --clr-primary-outline-1: #543ac9;
 
-    --clr-modal-bg: rgb(228, 242, 248);
+    --clr-modal-bg: #e4f2f8;
 }

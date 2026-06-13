@@ -1,8 +1,8 @@
 .main-content {
     display: grid;
-    
-    background-color: var(--clr-primary-bg);
-    min-height: calc(100vh - 4rem);
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    min-height: calc(100vh - 2*4rem);
 }
 
 .main-teaser-text {
@@ -11,4 +11,5 @@
     background-color: var(--clr-primary-bg--1);
     padding: .5em 1em;
     border-radius: .5em;
+    margin: 1rem;
 }

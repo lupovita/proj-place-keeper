@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google API Link -->
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlG6P9l-b46lhokk6zQIuNoCrJTlUJ7LE"></script>
+
     <link rel="stylesheet" href="/css/styles.css">
+    <script defer src="/js/services/util.service.js"></script>
+    <script defer src="/js/services/user.service.js"></script>
+    <script defer src="/js/services/place.service.js"></script>
+    <script defer src="/js/controllers/place.controller.js"></script>
     <title>Place Keeper - Places</title>
 </head>
-<body>
-    <header class="main-header grid grid-column align-center">
-        <div class="logo">Place<span class="logo-symbol fa"></span>Keeper</div>
+
+<body onload="onInit()">
+    <header class="main-header">
+        <div class="logo">Place<span class="logo-symbol fab"></span>Keeper</div>
+
         <nav class="main-nav">
             <ul class="grid grid-column clean-list">
                 <li><a href="index.html">Home</a></li>
@@ -16,7 +28,26 @@
                 <li><a href="places.html" class="active">Places</a></li>
             </ul>
         </nav>
+
+        <button class="btn rounded hover btn-toggle-menu" type="button"
+            onclick="onToggleMenu()">☰</button>
     </header>
-    <main class="main-content"></main>
+
+    <main class="main-content">
+        <div class="map"></div>
+
+        <section class="places-list"></section>
+    </main>
+
+    <video class="main-hero full" autoplay muted loop playsinline>
+        <source src="/videos/hero.mp4" />
+        Your browser doesn't support the video tag.
+    </video>
+
+    <footer class="main-footer">
+        <div class="logo">Place<span class="logo-symbol fab"></span>Keeper</div>
+        <small class="footer-rights">© 2026 PlaceKeeper - All Rights Reserved.</small>
+    </footer>
 </body>
+
 </html>

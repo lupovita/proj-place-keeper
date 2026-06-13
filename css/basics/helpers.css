@@ -35,3 +35,7 @@
 .grid-column {
     grid-auto-flow: column;
 }
+
+.full {
+    grid-column: 1 / -1;
+}

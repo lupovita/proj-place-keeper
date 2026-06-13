@@ -5,13 +5,12 @@
 }
 
 html {
+    background-color: var(--clr-primary-bg);
     font-family: Lato, sans-serif;
     color: var(--clr-primary-base);
-    font-size: 20px;
 }
 
 body {
-    font-size: 1rem;
     margin: 0;
 }
 
@@ -37,4 +36,48 @@ p {
 
 a {
     text-decoration: none;
+}
+
+/* BUTTONS */
+.btn {
+    font-family: Eurofurence, sans-serif;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+
+    background-color: transparent;
+    color: inherit;
+
+    padding: .5em 1.25em;
+    border: 2px solid var(--clr-primary-outline--1);
+
+    cursor: pointer;
+}
+
+.btn.rounded {
+    border-radius: 2em;
+}
+
+.btn.hover:hover {
+    color: var(--clr-primary-outline-1);
+    border-color: var(--clr-primary-outline-1);
+}
+
+
+/* INPUTS & LABELS */
+input,
+label {
+    font-family: inherit;
+    font-size: 1em;
+    padding: .3em .6em;
+    border: 1px solid var(--clr-primary-outline);
+    border-radius: .5em;
+}
+
+input:invalid {
+    color: red;
+}
+
+input[type=color],
+input[type=range] {
+    cursor: pointer;
 }

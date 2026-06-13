@@ -1,0 +1,11 @@
+.main-footer {
+    display: flex;
+    place-content: center;
+    align-items: center;
+    gap: 20px;
+
+    padding: .5em;
+    background-color: var(--clr-primary-bg-1);
+    box-shadow: inset 0px 6px 0px var(--clr-primary-outline--1);
+    min-height: 4rem;
+}

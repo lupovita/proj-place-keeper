@@ -17,14 +17,27 @@
 
 /* Font Awesome */
 @font-face {
-    font-family: fa;
+    font-family: fab;
     src: url(/fonts/fa/fa-brands-400.woff2);
 }
 
-.fa::before {
-    font-family: fa;
+@font-face {
+    font-family: fas;
+    src: url(/fonts/fa/fa-solid-900.woff2);
 }
 
-.fa.logo-symbol::before {
+.fab::before {
+    font-family: fab;
+}
+
+.fas::before {
+    font-family: fas;
+}
+
+.fab.logo-symbol::before {
     content: "\e86b";
+}
+
+.fas.location::before {
+    content: "\f3c5"
 }
