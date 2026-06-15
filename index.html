@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <!-- CSS -->
     <link rel="stylesheet" href="/css/styles.css">
+    <!-- JS -->
     <script src="/js/services/util.service.js" defer></script>
     <script src="/js/services/user.service.js" defer></script>
     <script src="/js/controllers/home.controller.js" defer></script>
@@ -17,13 +21,13 @@
 
         <nav class="main-nav">
             <ul class="grid grid-column clean-list">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="user-settings.html">Settings</a></li>
-                <li><a href="places.html">Places</a></li>
+                <li><a href="/index.html" class="active">Home</a></li>
+                <li><a href="/html/user-settings.html">Settings</a></li>
+                <li><a href="/html/places.html">Places</a></li>
             </ul>
         </nav>
 
-        <button class="btn rounded hover btn-toggle-menu" type="button"
+        <button class="btn-toggle-menu btn rounded hover" type="button"
             onclick="onToggleMenu()">☰</button>
     </header>
 
@@ -32,7 +36,7 @@
     </main>
 
     <video class="main-hero" autoplay muted loop playsinline>
-        <source src="/videos/hero.mp4" />
+        <source src="/videos/hero.mp4">
         Your browser doesn't support the video tag.
     </video>
 

@@ -5,16 +5,16 @@
 /* BASICS */
 @import url(basics/base.css);
 @import url(basics/helpers.css);
-@import url(basics/layout.css);
 
 /* COMPONENTS */
 @import url(components/main-header.css);
 @import url(components/logo.css);
-@import url(components/main-nav.css);
 @import url(components/main-hero.css);
 @import url(components/main-content.css);
 @import url(components/places-list.css);
-@import url(components/main-form.css);
+@import url(components/settings-form.css);
+@import url(components/google-map.css);
+@import url(components/add-place-modal.css);
 @import url(components/main-footer.css);
 
 /* MEDIA QUERIES */

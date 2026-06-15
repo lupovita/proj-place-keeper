@@ -11,6 +11,15 @@
     flex-wrap: wrap;
 }
 
+/* grid helpers */
+.grid {
+    display: grid;
+}
+
+.grid-column {
+    grid-auto-flow: column;
+}
+
 /* alignment helpers */
 .space-between {
     justify-content: space-between;
@@ -25,17 +34,4 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
-}
-
-/* grid helpers */
-.grid {
-    display: grid;
-}
-
-.grid-column {
-    grid-auto-flow: column;
-}
-
-.full {
-    grid-column: 1 / -1;
 }

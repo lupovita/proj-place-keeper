@@ -1,18 +1,21 @@
 /* palette */
-
 :root {
-    --clr-primary--1: #ffffff;
-    --clr-primary-base: #866bff;
+    --clr-base: #ffffff;
+    --clr-1: #1a73e8;
 
-    --clr-primary-bg--1: #ffffff99;
-    --clr-primary-bg: #506fad4d;
-    --clr-primary-bg-1: #292929;
-    --clr-primary-bg-2: #000000;
+    --clr-bg--4: #ffffff;
+    --clr-bg--3: #866bff;
+    --clr-bg--2: #866bff99;
+    --clr-bg--1: #ffffff99;
+    --clr-bg: #506fad4d;
+    --clr-bg-1: #292929;
+    --clr-bg-2: #000000;
 
-    --clr-primary-outline--2: #e1e0e0;
-    --clr-primary-outline--1: #fcb2ff;
-    --clr-primary-outline: #fa74fa;
-    --clr-primary-outline-1: #543ac9;
+    --clr-outline--2: #e1e0e0;
+    --clr-outline--1: #fcb2ff;
+    --clr-outline: #fa74fa;
+    --clr-outline-1: #2bb3ff;
+    --clr-outline-2: #0000004d;
 
     --clr-modal-bg: #e4f2f8;
 }

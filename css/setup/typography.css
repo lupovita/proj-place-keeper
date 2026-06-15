@@ -30,14 +30,22 @@
     font-family: fab;
 }
 
+.fab.logo-symbol::before {
+    content: '\e86b';
+}
+
 .fas::before {
     font-family: fas;
 }
 
-.fab.logo-symbol::before {
-    content: "\e86b";
+.fas.location-marker::before {
+    content: '\f3c5';
 }
 
 .fas.location::before {
-    content: "\f3c5"
+    content: '\f601';
+}
+
+.fas.csv::before {
+    content: '\f6dd';
 }

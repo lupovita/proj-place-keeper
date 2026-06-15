@@ -5,11 +5,6 @@
     min-height: calc(100vh - 2*4rem);
 }
 
-.main-teaser-text {
-    text-align: center;
-    place-self: center;
-    background-color: var(--clr-primary-bg--1);
-    padding: .5em 1em;
-    border-radius: .5em;
-    margin: 1rem;
+.main-content>.full {
+    grid-column: 1 / -1;
 }

@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google API Link -->
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlG6P9l-b46lhokk6zQIuNoCrJTlUJ7LE"></script>
-
+    <!-- FAVICON -->
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <!-- CSS -->
     <link rel="stylesheet" href="/css/styles.css">
+    <!-- Google API Link -->
+    <script defer async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlG6P9l-b46lhokk6zQIuNoCrJTlUJ7LE&loading=async&libraries=marker"></script>
+    <!-- JS -->
     <script defer src="/js/services/util.service.js"></script>
     <script defer src="/js/services/user.service.js"></script>
     <script defer src="/js/services/place.service.js"></script>
@@ -23,24 +25,49 @@
 
         <nav class="main-nav">
             <ul class="grid grid-column clean-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="user-settings.html">Settings</a></li>
-                <li><a href="places.html" class="active">Places</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/html/user-settings.html">Settings</a></li>
+                <li><a href="/html/places.html" class="active">Places</a></li>
             </ul>
         </nav>
 
-        <button class="btn rounded hover btn-toggle-menu" type="button"
+        <button class="btn-toggle-menu btn rounded hover" type="button"
             onclick="onToggleMenu()">☰</button>
     </header>
 
     <main class="main-content">
         <div class="map"></div>
 
-        <section class="places-list"></section>
+        <section class="places-list-section">
+            <hgroup class="places-list-header">
+                <h2>Places List</h2>
+
+                <a href="#" class="btn-csv btn rounded hover fas csv" onclick="onDownloadCSV(this)"
+                    title="download csv" download="places-list.csv">Download</a>
+            </hgroup>
+
+            <div class="places-list"></div>
+        </section>
     </main>
 
-    <video class="main-hero full" autoplay muted loop playsinline>
-        <source src="/videos/hero.mp4" />
+    <dialog class="add-place-modal">
+        <form onsubmit="onAddPlace(this)" method="dialog">
+            <hgroup class="form-header">
+                <h2>Name Your Place:</h2>
+            </hgroup>
+
+            <input type="text" name="place-name" placeholder="Enter place name" required autofocus>
+
+            <div class="btns">
+                <button type="submit" class="btn rounded hover">Save</button>
+                <button type="button" class="btn rounded hover" onclick="onCloseAddPlaceModal()">
+                    Close</button>
+            </div>
+        </form>
+    </dialog>
+
+    <video class="main-hero" autoplay muted loop playsinline>
+        <source src="/videos/hero.mp4">
         Your browser doesn't support the video tag.
     </video>
 

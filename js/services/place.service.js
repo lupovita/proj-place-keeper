@@ -39,6 +39,13 @@ function getPlaceById(placeId) {
     return gPlaces.find(place => place.id === placeId);
 }
 
+function getPlacesCSVContent() {
+    let csvContent = 'Place Name,Latitude,Longitude,Zoom\n';
+    csvContent += gPlaces.map(
+        ({ name, lat, lng, zoom }) => `${name},${lat},${lng},${zoom}`).join('\n');
+    return csvContent;
+}
+
 // Place Storage
 
 function _savePlaces() {
@@ -55,7 +62,7 @@ function removePlace(placeId) {
     return place;
 }
 
-function addPlace(name, lat, lng, zoom) {
+function addPlace({ name, lat, lng, zoom }) {
     const place = _createPlace(name, lat, lng, zoom);
     gPlaces.unshift(place);
     _savePlaces();

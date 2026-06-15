@@ -5,9 +5,9 @@
 }
 
 html {
-    background-color: var(--clr-primary-bg);
+    background-color: var(--clr-bg);
     font-family: Lato, sans-serif;
-    color: var(--clr-primary-base);
+    color: var(--clr-base);
 }
 
 body {
@@ -36,6 +36,7 @@ p {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 /* BUTTONS */
@@ -43,14 +44,17 @@ a {
     font-family: Eurofurence, sans-serif;
     font-size: 1em;
     letter-spacing: 0.05em;
+    font-weight: bold;
 
     background-color: transparent;
     color: inherit;
 
     padding: .5em 1.25em;
-    border: 2px solid var(--clr-primary-outline--1);
+    border: 2px solid var(--clr-outline--1);
 
     cursor: pointer;
+
+    transition: .4s;
 }
 
 .btn.rounded {
@@ -58,10 +62,9 @@ a {
 }
 
 .btn.hover:hover {
-    color: var(--clr-primary-outline-1);
-    border-color: var(--clr-primary-outline-1);
+    color: var(--clr-outline-1);
+    border-color: var(--clr-outline-1);
 }
-
 
 /* INPUTS & LABELS */
 input,
@@ -69,7 +72,7 @@ label {
     font-family: inherit;
     font-size: 1em;
     padding: .3em .6em;
-    border: 1px solid var(--clr-primary-outline);
+    border: 1px solid var(--clr-outline);
     border-radius: .5em;
 }
 

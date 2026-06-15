@@ -4,8 +4,8 @@
 
 const USER_KEY = 'userDB';
 const BG_OPACITY = '4d';
-const EILAT_LOC = { lat: 29.550360, lng: 34.952278 };
-const INITIAL_ZOOM = 8;
+const INIT_LOC = { lat: 29.550360, lng: 34.952278 };
+const INIT_ZOOM = 8;
 
 let gUser;
 
@@ -16,7 +16,20 @@ _createUser();
 function _createUser() {
     gUser = loadFromStorage(USER_KEY);
     if (!gUser) {
-        resetUser();
+        const defaultTxtColor = getDefaultTxtColor();
+        const defaultBgColor = getDefaultBgColor();
+        gUser = {
+            email: '',
+            txtColor: defaultTxtColor,
+            bgColor: defaultBgColor.slice(0, -2), // without opacity
+            bgColorWithOpacity: defaultBgColor,
+            age: '',
+            birthDate: '',
+            birthTime: '',
+            gender: '',
+            initZoom: INIT_ZOOM,
+            initLoc: INIT_LOC,
+        };
         _saveUser();
     }
 }
@@ -28,11 +41,11 @@ function getUser() {
 }
 
 function getDefaultTxtColor() {
-    return getComputedStyle(document.documentElement).getPropertyValue('--clr-primary-base');
+    return getComputedStyle(document.documentElement).getPropertyValue('--clr-base');
 }
 
 function getDefaultBgColor() {
-    return getComputedStyle(document.documentElement).getPropertyValue('--clr-primary-bg');
+    return getComputedStyle(document.documentElement).getPropertyValue('--clr-bg');
 }
 
 // User Storage
@@ -42,24 +55,6 @@ function _saveUser() {
 }
 
 // User CRUD
-
-function resetUser() {
-    const defaultTxtColor = getDefaultTxtColor();
-    const defaultBgColor = getDefaultBgColor();
-    gUser = {
-        email: '',
-        txtColor: defaultTxtColor,
-        bgColor: defaultBgColor.slice(0, -2), // without opacity
-        bgColorWithOpacity: defaultBgColor,
-        age: '',
-        birthDate: '',
-        birthTime: '',
-        gender: '',
-        initZoom: INITIAL_ZOOM,
-        initLoc: EILAT_LOC,
-    };
-    _saveUser();
-}
 
 function updateUser(user) {
     gUser = {
