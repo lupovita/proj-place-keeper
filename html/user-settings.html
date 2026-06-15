@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <!-- CSS -->
     <link rel="stylesheet" href="/css/styles.css">
+    <!-- JS -->
     <script src="/js/services/util.service.js" defer></script>
     <script src="/js/services/user.service.js" defer></script>
     <script src="/js/controllers/user.controller.js" defer></script>
@@ -23,24 +27,24 @@
             </ul>
         </nav>
 
-        <button class="btn rounded hover btn-toggle-menu" type="button"
+        <button class="btn-toggle-menu btn rounded hover" type="button"
             onclick="onToggleMenu()">☰</button>
     </header>
 
     <main class="main-content">
-        <form class="main-form full" onsubmit="onSaveUser()">
+        <form class="settings-form full" onsubmit="onSaveUser()">
             <hgroup class="form-header">
                 <h2>Set Your Settings</h2>
             </hgroup>
 
             <label for="email">E-Mail:</label>
             <input required id="email" type="email" name="email" placeholder="Insert your email"
-                autofocus>
+                autofocus autocomplete="on">
 
             <label for="ageInput">Age:</label>
             <div class="age-container">
                 <input required id="ageInput" type="range" name="age" min="18" max="120" value="18"
-                    oninput="ageOutput.value = ageInput.value" onchange="birthDate.value=''" />
+                    oninput="ageOutput.value = ageInput.value" onchange="birthDate.value=''">
                 <output id="ageOutput" for="ageInput">18</output>
             </div>
 
@@ -51,7 +55,7 @@
             <input required type="color" name="txtColor" id="txtColor">
 
             <label for="birthDate">Birth Date:</label>
-            <input required type="date" name="birthDate" id="birthDate"
+            <input required type="date" name="birthDate" id="birthDate" autocomplete="on"
                 onchange="onRenderAgeByBirthDate()">
 
             <label for="birthTime">Birth Time:</label>
@@ -63,9 +67,9 @@
                 placeholder="Insert your gender" pattern="^(Male|Female|Other){1}$">
 
             <datalist id="genderList">
-                <option value="Male" />
-                <option value="Female" />
-                <option value="Other" />
+                <option value="Male"></option>
+                <option value="Female"></option>
+                <option value="Other"></option>
             </datalist>
 
             <label for="initZoom">Initial Zoom:</label>
@@ -88,8 +92,8 @@
         </form>
     </main>
 
-    <video class="main-hero full" autoplay muted loop playsinline>
-        <source src="/videos/hero.mp4" />
+    <video class="main-hero" autoplay muted loop playsinline>
+        <source src="/videos/hero.mp4">
         Your browser doesn't support the video tag.
     </video>
 

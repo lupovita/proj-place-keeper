@@ -1,40 +1,36 @@
-.main-form {
+.settings-form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(2rem, auto);
     gap: 15px;
     place-self: center;
-    place-items: center stretch;
 
-    background-color: var(--clr-primary-bg-1);
-    color: var(--clr-primary--1);
+    background-color: var(--clr-bg-1);
 
     padding: 1em;
-    border: 1px solid var(--clr-primary-outline);
+    border: 1px solid var(--clr-outline);
     border-radius: .5em;
     margin: .5em;
 }
 
-.main-form .form-header {
+.settings-form .form-header {
     grid-column: 1 / -1;
-    display: grid;
 
     text-align: center;
 
     padding-inline: 1em;
-    border-block-end: 2px solid var(--clr-primary-outline--2);
+    border-block-end: 2px solid var(--clr-outline--2);
 }
 
-.main-form .age-container {
+.settings-form .age-container {
     place-self: center;
     display: grid;
     grid-auto-flow: column;
     gap: 10px;
     place-items: center
-
 }
 
-.main-form input[type=color] {
+.settings-form input[type=color] {
     place-self: center;
     height: 90%;
     width: 50%;
@@ -42,18 +38,18 @@
     font-size: .2em;
 }
 
-.main-form .init-loc-container {
+.settings-form .init-loc-container {
     display: flex;
     gap: 10px;
     justify-content: center;
 }
 
-.main-form .btns-container {
+.settings-form .btns-container {
     grid-column: 1 / -1;
     display: grid;
     grid-auto-flow: column;
     gap: 40px;
 
     padding: 1em 1em 0;
-    border-block-start: 2px solid var(--clr-primary-outline--2);
+    border-block-start: 2px solid var(--clr-outline--2);
 }

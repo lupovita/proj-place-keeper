@@ -7,3 +7,14 @@
     z-index: -1;
     object-fit: cover;
 }
+
+.main-teaser-text {
+    place-self: center;
+    text-align: center;
+
+    background-color: var(--clr-bg--2);
+
+    padding: .5em 1em;
+    border-radius: .5em;
+    margin: 1rem;
+}

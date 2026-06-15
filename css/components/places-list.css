@@ -1,22 +1,56 @@
+/* PLACES LIST SECTION */
+.places-list-section {
+    display: grid;
+    align-self: start;
+
+    background-color: var(--clr-bg--3);
+    border-radius: 1em;
+    margin: .5em;
+}
+
+/* PLACES LIST HEADER */
+.places-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5em;
+
+    padding: 1em;
+    border-block-end: 2px solid var(--clr-outline--2);
+}
+
+.places-list-header h2 {
+    margin: 0;
+}
+
+.places-list-header .btn-csv {
+    display: flex;
+    place-self: center;
+    gap: .3em;
+
+    font-size: 1.2em;
+    padding-inline: .8em;
+}
+
+/* PLACES LIST */
 .places-list>ul {
     display: grid;
-    background-color: var(--clr-primary-bg-1);
-    color: var(--clr-primary--1);
 
     border-radius: 1em;
-    margin: 1em;
 }
 
 .places-list>ul>li {
     display: grid;
-    grid-template-columns: 5fr 1fr 1fr;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr auto auto;
     place-items: center;
     gap: 15px;
-    
-    padding: 10px;
-    border-block-end: 2px solid var(--clr-primary-outline--2);
+
+    padding: 10px 1em;
+    border-block-end: 2px solid var(--clr-outline--2);
+}
+
+.places-list .place-name {
+    justify-self: start;
 }
 
 .places-list .btn {

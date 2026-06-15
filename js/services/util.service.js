@@ -1,5 +1,7 @@
 'use strict';
 
+// Form Validations
+
 function getAgeByBirthDate(...birthDateParams) {
     const birthDate = new Date(...birthDateParams);
     const nowDate = new Date();
@@ -26,6 +28,8 @@ function formatDate(date, yearsDiff = 0, daysDiff = 0) {
     return `${year - yearsDiff}-${month}-${day - daysDiff}`;
 }
 
+// Storage
+
 function saveToStorage(key, value) {
     const json = JSON.stringify(value)
     localStorage.setItem(key, json)
@@ -35,6 +39,8 @@ function loadFromStorage(key) {
     const json = localStorage.getItem(key)
     return JSON.parse(json)
 }
+
+// Random Generators
 
 function getRandomId(idLength) {
     const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

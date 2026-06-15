@@ -1,14 +1,18 @@
 'use strict';
 
+// Globals and initialization
+
 const MIN_AGE = 18, MAX_AGE = 120;
 
 function onInit() {
     renderUser();
 }
 
+// Rendering
+
 function renderUser() {
     const user = getUser();
-    const elForm = document.querySelector('.main-form');
+    const elForm = document.querySelector('.settings-form');
 
     // Render Form
     elForm.querySelector('input[name="email"]').value = user.email;
@@ -30,11 +34,15 @@ function renderUser() {
 
     // Render txtColor
     if (user.txtColor === getDefaultTxtColor()) return;
-    document.querySelector('.main-content>*').style.color = user.txtColor;
+    document.querySelectorAll('.settings-form label').forEach(el => el.style.color = user.txtColor);
 }
 
+// Settings Form
+
+// User CRUD
+
 function onSaveUser() {
-    const elForm = document.querySelector('.main-form');
+    const elForm = document.querySelector('.settings-form');
     const email = elForm.querySelector('input[name="email"]').value;
     const age = +elForm.querySelector('input[id="ageInput"]').value;
     const bgColor = elForm.querySelector('input[name="bgColor"]').value;
@@ -51,7 +59,7 @@ function onSaveUser() {
 }
 
 function onRenderAgeByBirthDate() {
-    const elForm = document.querySelector('.main-form');
+    const elForm = document.querySelector('.settings-form');
     const birthDateStr = elForm.querySelector('input[name="birthDate"]').value;
     const birthTimeStr = elForm.querySelector('input[name="birthTime"]').value;
     if (!birthDateStr) return;
@@ -62,12 +70,14 @@ function onRenderAgeByBirthDate() {
 }
 
 function onClearForm() {
-    const elForm = document.querySelector('.main-form');
+    const elForm = document.querySelector('.settings-form');
     elForm.reset();
     const defaultBgColorWithoutOpacity = getDefaultBgColor().slice(0, -2);
     elForm.querySelector('input[name="bgColor"]').value = defaultBgColorWithoutOpacity;
     elForm.querySelector('input[name="txtColor"]').value = getDefaultTxtColor();
 }
+
+// Menu
 
 function onToggleMenu() {
     document.body.classList.toggle('menu-open');

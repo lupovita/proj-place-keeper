@@ -1,0 +1,30 @@
+.btn-location {
+    display: grid;
+    place-items: center;
+
+    height: 40px;
+    width: 40px;
+
+    background-color: var(--clr-bg--4);
+    font-size: 1.5em;
+
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    margin: 10px 10px 15px;
+    box-shadow: var(--clr-outline-2) 0px 1px 4px -1px;
+
+    cursor: pointer;
+}
+
+.btn-location:active {
+    color: var(--clr-1);
+}
+
+.info-window {
+    color: initial;
+    font-family: Lato, sans-serif;
+    font-size: 1.3em;
+    max-height: 400px;
+    max-width: 400px;
+}
