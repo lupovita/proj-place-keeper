@@ -33,13 +33,13 @@
 }
 
 /* PLACES LIST */
-.places-list>ul {
+.places-list {
     display: grid;
 
     border-radius: 1em;
 }
 
-.places-list>ul>li {
+.places-list>li {
     display: grid;
     grid-template-columns: 1fr auto auto;
     place-items: center;

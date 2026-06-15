@@ -13,7 +13,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlG6P9l-b46lhokk6zQIuNoCrJTlUJ7LE&loading=async&libraries=marker"></script>
     <!-- JS -->
     <script defer src="../js/services/util.service.js"></script>
-    <script defer src="../js/services/user.service.js"></script>
     <script defer src="../js/services/place.service.js"></script>
     <script defer src="../js/controllers/place.controller.js"></script>
     <title>Place Keeper - Places</title>
@@ -36,7 +35,7 @@
     </header>
 
     <main class="main-content">
-        <div class="map"></div>
+        <section class="map"></section>
 
         <section class="places-list-section">
             <hgroup class="places-list-header">
@@ -46,7 +45,7 @@
                     title="download csv" download="places-list.csv">Download</a>
             </hgroup>
 
-            <div class="places-list"></div>
+            <ul class="places-list clean-list"></ul>
         </section>
     </main>
 
@@ -56,7 +55,8 @@
                 <h2>Name Your Place:</h2>
             </hgroup>
 
-            <input type="text" name="place-name" placeholder="Enter place name" required autofocus>
+            <input type="text" name="placeName" id="placeName" placeholder="Enter place name"
+                required autofocus>
 
             <div class="btns">
                 <button type="submit" class="btn rounded hover">Save</button>

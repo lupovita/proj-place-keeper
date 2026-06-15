@@ -3,6 +3,8 @@
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
     min-height: calc(100vh - 2*4rem);
+
+    background-color: var(--clr-bg);
 }
 
 .main-content>.full {

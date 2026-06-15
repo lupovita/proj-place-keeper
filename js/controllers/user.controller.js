@@ -15,19 +15,19 @@ function renderUser() {
     const elForm = document.querySelector('.settings-form');
 
     // Render Form
-    elForm.querySelector('input[name="email"]').value = user.email;
-    elForm.querySelector('input[name="age"]').value = user.age || MIN_AGE;
-    elForm.querySelector('output[id="ageOutput"]').value = user.age || MIN_AGE;
-    elForm.querySelector('input[name="bgColor"]').value = user.bgColor;
-    elForm.querySelector('input[name="txtColor"]').value = user.txtColor;
-    elForm.querySelector('input[name="birthDate"]').value = user.birthDate;
-    elForm.querySelector('input[name="birthDate"]').min = formatDate(new Date(), MAX_AGE, 1);
-    elForm.querySelector('input[name="birthDate"]').max = formatDate(new Date(), MIN_AGE, 1);
-    elForm.querySelector('input[name="birthTime"]').value = user.birthTime;
-    elForm.querySelector('input[name="gender"]').value = user.gender;
-    elForm.querySelector('input[name="initZoom"]').value = user.initZoom;
-    elForm.querySelector('input[name="initLat"]').value = user.initLoc.lat;
-    elForm.querySelector('input[name="initLng"]').value = user.initLoc.lng;
+    elForm.email.value = user.email;
+    elForm.ageInput.value = user.age || MIN_AGE;
+    elForm.ageOutput.value = user.age || MIN_AGE;
+    elForm.bgColor.value = user.bgColor;
+    elForm.txtColor.value = user.txtColor;
+    elForm.birthDate.value = user.birthDate;
+    elForm.birthDate.min = formatDate(new Date(), MAX_AGE, 1);
+    elForm.birthDate.max = formatDate(new Date(), MIN_AGE, 1);
+    elForm.birthTime.value = user.birthTime;
+    elForm.gender.value = user.gender;
+    elForm.initZoom.value = user.initZoom;
+    elForm.initLat.value = user.initLoc.lat;
+    elForm.initLng.value = user.initLoc.lng;
 
     // Render BgColor
     document.querySelector('.main-content').style.backgroundColor = user.bgColorWithOpacity;
@@ -41,40 +41,39 @@ function renderUser() {
 
 // User CRUD
 
-function onSaveUser() {
-    const elForm = document.querySelector('.settings-form');
-    const email = elForm.querySelector('input[name="email"]').value;
-    const age = +elForm.querySelector('input[id="ageInput"]').value;
-    const bgColor = elForm.querySelector('input[name="bgColor"]').value;
-    const txtColor = elForm.querySelector('input[name="txtColor"]').value;
-    const birthDate = elForm.querySelector('input[name="birthDate"]').value;
-    const birthTime = elForm.querySelector('input[name="birthTime"]').value;
-    const gender = elForm.querySelector('input[name="gender"]').value;
-    const initZoom = +elForm.querySelector('input[name="initZoom"]').value;
-    const initLat = +elForm.querySelector('input[name="initLat"]').value;
-    const initLng = +elForm.querySelector('input[name="initLng"]').value;
-    const initLoc = { lat: initLat, lng: initLng };
-
-    updateUser({ email, age, bgColor, txtColor, birthDate, birthTime, gender, initZoom, initLoc });
+function onSaveUser(elForm) {
+    // const elForm = ev.target; <- Another Option to capture elForm
+    const user = {
+        email: elForm.email.value,
+        age: +elForm.ageInput.value,
+        bgColor: elForm.bgColor.value,
+        txtColor: elForm.txtColor.value,
+        birthDate: elForm.birthDate.value,
+        birthTime: elForm.birthTime.value,
+        gender: elForm.gender.value,
+        initZoom: +elForm.initZoom.value,
+        initLoc: { lat: +elForm.initLat.value, lng: +elForm.initLng.value },
+    }
+    updateUser(user);
 }
 
 function onRenderAgeByBirthDate() {
     const elForm = document.querySelector('.settings-form');
-    const birthDateStr = elForm.querySelector('input[name="birthDate"]').value;
-    const birthTimeStr = elForm.querySelector('input[name="birthTime"]').value;
+    const birthDateStr = elForm.birthDate.value;
+    const birthTimeStr = elForm.birthTime.value;
     if (!birthDateStr) return;
 
     const age = getAgeByBirthDate(...birthDateStr.split('-'), ...birthTimeStr.split(':'));
-    elForm.querySelector('input[id="ageInput"]').value = age;
-    elForm.querySelector('output[id="ageOutput"]').value = age;
+    elForm.ageInput.value = age;
+    elForm.ageOutput.value = age;
 }
 
 function onClearForm() {
     const elForm = document.querySelector('.settings-form');
     elForm.reset();
     const defaultBgColorWithoutOpacity = getDefaultBgColor().slice(0, -2);
-    elForm.querySelector('input[name="bgColor"]').value = defaultBgColorWithoutOpacity;
-    elForm.querySelector('input[name="txtColor"]').value = getDefaultTxtColor();
+    elForm.bgColor.value = defaultBgColorWithoutOpacity;
+    elForm.txtColor.value = getDefaultTxtColor();
 }
 
 // Menu

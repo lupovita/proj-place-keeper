@@ -1,6 +1,8 @@
 'use strict';
 
-// Initialization
+// Globals and Initialization
+
+const USER_KEY = 'userDB';
 
 function onInit() {
     renderHome();
@@ -9,9 +11,12 @@ function onInit() {
 // Rendering
 
 function renderHome() {
-    const { txtColor, bgColorWithOpacity } = getUser();
-    document.querySelector('.main-teaser-text').style.color = txtColor;
-    document.querySelector('.main-content').style.backgroundColor = bgColorWithOpacity;
+    const user = loadFromStorage(USER_KEY);
+    if (!user) return;
+    // Render bgColor
+    document.querySelector('.main-content').style.backgroundColor = user.bgColorWithOpacity;
+    // Render txtColor
+    document.querySelector('.main-teaser-text').style.color = user.txtColor;
 }
 
 // Menu

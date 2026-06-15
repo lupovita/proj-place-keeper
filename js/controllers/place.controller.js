@@ -3,6 +3,9 @@
 // Globals and initialization
 
 const MAP_ID = 'mapID';
+const USER_KEY = 'userDB';
+const INIT_LOC = { lat: 29.550360, lng: 34.952278 };
+const INIT_ZOOM = 8;
 const CURR_LOC_ZOOM = 15;
 
 let gMap;
@@ -14,14 +17,16 @@ function onInit() {
     initMap();
     renderPlaces();
     renderUserSettings();
-    gMap.addListener('click', onOpenAddPlaceModal);
 }
 
 function initMap() {
-    const { initZoom: zoom, initLoc: center } = getUser();
+    const user = loadFromStorage(USER_KEY);
+    const zoom = user ? user.initZoom : INIT_ZOOM;
+    const center = user ? user.initLoc : INIT_LOC;
     const elMap = document.querySelector('.map');
     const options = { center, zoom, mapId: MAP_ID };
     gMap = new google.maps.Map(elMap, options);
+    gMap.addListener('click', onOpenAddPlaceModal);
     createLocationBtn();
 }
 
@@ -31,20 +36,20 @@ function createLocationBtn() {
 
     locationBtn.classList.add('btn-location', 'fas', 'location');
     gMap.controls[google.maps.ControlPosition.INLINE_END_BLOCK_END].push(locationBtn);
-    locationBtn.addEventListener('click', onGetPosition);
+    locationBtn.addEventListener('click', onPanToUserLocation);
 }
 
 // Rendering
 
 function renderUserSettings() {
-    const { bgColorWithOpacity, txtColor } = getUser();
+    const user = loadFromStorage(USER_KEY);
+    if (!user) return;
     // Render BgColor
-    document.querySelector('.main-content').style.backgroundColor = bgColorWithOpacity;
+    document.querySelector('.main-content').style.backgroundColor = user.bgColorWithOpacity;
     // Render txtColor
-    if (txtColor !== getDefaultTxtColor()) {
-        document.querySelectorAll('.places-list .place-name').forEach(
-            el => el.style.color = txtColor);
-    }
+    document.querySelectorAll('.places-list .place-name').forEach(
+        el => el.style.color = user.txtColor);
+
 }
 
 function renderPlaces() {
@@ -58,9 +63,7 @@ function renderPlaces() {
                 onclick="onPanToPlace('${place.id}')"></button>
         </li>`
     ).join('');
-    innerHTML = `<ul class="clean-list">
-                    ${innerHTML}
-                </ul>`;
+
     document.querySelector('.places-list').innerHTML = innerHTML;
 
     // Needs to be rendered everytime places are rendered.
@@ -72,13 +75,17 @@ function renderMarkers() {
     // remove previous markers
     gMarkers.forEach(marker => marker.setMap(null));
     // every place is creating a marker
-    gMarkers = places.map(place => new google.maps.marker.AdvancedMarkerElement(
-        { position: place, map: gMap, title: place.name }));
+    gMarkers = places.map(place =>
+        new google.maps.marker.AdvancedMarkerElement({
+            position: place,
+            map: gMap,
+            title: place.name
+        }));
 }
 
 // Google Maps Section
 
-function onGetPosition() {
+function onPanToUserLocation() {
     // Check if HTML5 geolocation is supported.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -92,11 +99,8 @@ function onGetPosition() {
     }
 }
 
-function showLocation(position) {
-    const pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-    };
+function showLocation({ coords }) {
+    const pos = { lat: coords.latitude, lng: coords.longitude };
     const content = `<div class="info-window">Your location.</div>`;
     gInfoWindow.setContent(content);
     gInfoWindow.setPosition(pos);
@@ -132,14 +136,15 @@ function handleLocationError(browserHasGeolocation, err) {
 // Place CRUD
 
 function onRemovePlace(placeId) {
+    if (!confirm('Are you sure ?')) return;
     removePlace(placeId);
     renderPlaces();
 }
 
 function onPanToPlace(placeId) {
-    const place = getPlaceById(placeId);
-    gMap.setCenter({ lat: place.lat, lng: place.lng });
-    gMap.setZoom(place.zoom);
+    const { lat, lng, zoom } = getPlaceById(placeId);
+    gMap.setCenter({ lat, lng });
+    gMap.setZoom(zoom);
 }
 
 function onDownloadCSV(elLink) {
@@ -149,7 +154,11 @@ function onDownloadCSV(elLink) {
 // Add Place Modal
 
 function onOpenAddPlaceModal(ev) {
-    gPlaceToAdd = { lat: ev.latLng.lat(), lng: ev.latLng.lng(), zoom: gMap.getZoom() };
+    gPlaceToAdd = {
+        lat: ev.latLng.lat(),
+        lng: ev.latLng.lng(),
+        zoom: gMap.getZoom()
+    };
     document.querySelector('.add-place-modal form').reset();
     document.querySelector('.add-place-modal').showModal();
 }
@@ -159,7 +168,7 @@ function onCloseAddPlaceModal() {
 }
 
 function onAddPlace(elForm) {
-    gPlaceToAdd.name = elForm.querySelector('input[name="place-name"]').value;
+    gPlaceToAdd.name = elForm.placeName.value;
     addPlace(gPlaceToAdd);
     renderPlaces();
 }

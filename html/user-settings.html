@@ -9,9 +9,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/styles.css">
     <!-- JS -->
-    <script src="../js/services/util.service.js" defer></script>
-    <script src="../js/services/user.service.js" defer></script>
-    <script src="../js/controllers/user.controller.js" defer></script>
+    <script defer src="../js/services/util.service.js"></script>
+    <script defer src="../js/services/user.service.js"></script>
+    <script defer src="../js/controllers/user.controller.js"></script>
     <title>Place Keeper - Settings</title>
 </head>
 
@@ -32,7 +32,7 @@
     </header>
 
     <main class="main-content">
-        <form class="settings-form full" onsubmit="onSaveUser()">
+        <form class="settings-form full" onsubmit="onSaveUser(this)">
             <hgroup class="form-header">
                 <h2>Set Your Settings</h2>
             </hgroup>

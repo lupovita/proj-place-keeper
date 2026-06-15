@@ -40,9 +40,9 @@ function getPlaceById(placeId) {
 }
 
 function getPlacesCSVContent() {
-    let csvContent = 'Place Name,Latitude,Longitude,Zoom\n';
+    let csvContent = 'Place Id,Place Name,Latitude,Longitude\n';
     csvContent += gPlaces.map(
-        ({ name, lat, lng, zoom }) => `${name},${lat},${lng},${zoom}`).join('\n');
+        ({ id, name, lat, lng }) => `${id},${name},${lat},${lng}`).join('\n');
     return csvContent;
 }
 
